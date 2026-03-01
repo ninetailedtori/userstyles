@@ -1,0 +1,237 @@
+/* ==UserStyle==
+@name Archive Of Our Own Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/archiveofourown
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/archiveofourown
+@version 2000.01.01
+@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/archiveofourown/catppuccin.user.less
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aarchiveofourown
+@description Soothing pastel theme for Archive Of Our Own
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@import "https://userstyles.catppuccin.com/lib/lib.less";
+
+/* deno-fmt-ignore */
+@-moz-document domain("archiveofourown.org"), domain("transformativeworks.org") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    #header {
+      background-color: @mantle;
+
+      * {
+        color: @text;
+      }
+
+      .heading * {
+        color: @accent;
+      }
+
+      .primary {
+        background-image: linear-gradient(@accent 2%, darken(@accent, 5%) 95%, darken(@accent, 10%) 100%);
+
+        a {
+          color: @base;
+        }
+      }
+
+      .menu {
+        background-color: @surface0;
+        background-image: unset;
+        box-shadow: 1px 1px 3px -1px @base;
+
+        li {
+          border-color: @overlay0;
+        }
+      }
+
+      :is(.actions, .open) a:is(:hover, :focus), .dropdown:is(:hover, :focus) a {
+        color: @text;
+        background-color: @surface0;
+      }
+
+      .dropdown .menu a:is(:hover, :focus) {
+        background-color: @surface1;
+      }
+
+      #search input {
+        color: @subtext1;
+
+        &:focus {
+          color: @text;
+        }
+      }
+    }
+
+    img.logo {
+      filter: @accent-filter;
+    }
+
+    #footer {
+      background-color: @mantle;
+      background-image: unset;
+      border-color: @overlay0;
+
+      .heading {
+        color: @text;
+      }
+
+      a, button {
+        color: @subtext0;
+
+        &:hover {
+          color: @text;
+        }
+      }
+    }
+
+    #dashboard {
+      &.own {
+        border-bottom-color: @accent;
+      }
+
+      ul {
+        border-color: @overlay0;
+      }
+
+      .current {
+        color: @base;
+        background-color: @accent;
+      }
+
+      a {
+        color: @text;
+
+        &:hover {
+          color: @base;
+          background-color: darken(@accent, 5%);
+        }
+
+        &:active, &:focus {
+          color: @base;
+          background-color: darken(@accent, 10%);
+        }
+      }
+    }
+
+    a, a:link {
+      color: @text;
+
+      &:hover {
+        color: @subtext0;
+      }
+    }
+
+    .search [role="tooltip"] {
+      color: @text;
+      background-color: @surface1;
+      border-color: @overlay0;
+    }
+
+    body, #main {
+      color: @text;
+      background-color: @base;
+    }
+
+    .home .header h2 {
+      color: @accent;
+      border-color: @overlay1;
+    }
+
+    .listbox, fieldset fieldset.listbox {
+      background-color: @mantle;
+      border-color: @overlay0;
+      box-shadow: 0 0 0 1px @base;
+
+      > .heading {
+        color: @text;
+
+        a {
+          color: @text;
+
+          &:visited {
+            color: @lavender;
+          }
+        }
+      }
+
+      .index {
+        background-color: @surface0;
+        box-shadow: 0 0 0 1px @base;
+      }
+    }
+
+    .blurb h4 a:link, .blurb h4 img {
+      color: @accent;
+
+      &:hover {
+        color: darken(@accent, 5%);
+      }
+
+      &:active, &:focus {
+        color: darken(@accent, 10%);
+      }
+
+      &:visited {
+        color: darken(@accent, 15%);
+      }
+    }
+
+    li.blurb {
+      border-color: @overlay0;
+    }
+
+    .actions a, .actions a:link, .action, .action:link, .actions button, .actions input, input[type="submit"], button, .current, .actions label {
+      color: @subtext1;
+      background-image: linear-gradient(@surface2 2%,@surface1 95%, @surface0 100%);
+      border-color: @overlay0;
+
+      &:hover {
+        box-shadow: inset 2px 2px 2px @base;
+      }
+
+      &:focus {
+        color: @text;
+      }
+    }
+
+    li.relationships a {
+      background-color: fade(@overlay2, 30%);
+    }
+
+    a.tag {
+      color: @text;
+
+      &:hover {
+        color: @base;
+        background-color: @accent;
+      }
+
+      &:active, &:focus {
+        color: @base;
+        background-color: darken(@accent, 5%);
+      }
+
+      &:visited {
+        color: @base;
+        background-color: darken(@accent, 10%);
+      }
+    }
+  }
+}
