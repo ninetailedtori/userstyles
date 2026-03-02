@@ -32,15 +32,15 @@
     #lib.palette();
     #lib.defaults();
 
-    #header {
+    header, #header {
       background-color: @mantle;
 
-      * {
-        color: @text;
-      }
-
-      .heading * {
+      h1 {
         color: @accent;
+
+        a, a span, sup {
+          color: @accent;
+        }
       }
 
       .primary {
@@ -77,6 +77,39 @@
           color: @text;
         }
       }
+    }
+
+    input, textarea {
+      color: @subtext1;
+      background-color: @surface0;
+      border-color: @overlay0;
+      box-shadow: @base 0px 1px 2px inset;
+
+      &:hover {
+        background-color: @surface1;
+      }
+
+      &:active, &:focus {
+        color: @text;
+        background-color: @surface2;
+      }
+    }
+
+    .qtip-content, .notice:not(.required), .comment_notice, .kudos_notice, ul.notes, .caution, .notice a {
+      color: @text;
+    }
+
+    .notice, .comment_notice, .kudos_notice, ul.notes, .caution, .error, .comment_error, .kudos_error, .alert.flash {
+      background-color: @surface0;
+      border-color: @overlay0;
+    }
+
+    form .notice, form ul.notes {
+      box-shadow: @base 0px 0px 3px;
+    }
+
+    .required, .error, .alert.flash {
+      color: @red;
     }
 
     img.logo {
