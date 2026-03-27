@@ -74,6 +74,7 @@ collaborators:
   - &ImenaOphelia ImenaOphelia
   - &koibtw koibtw
   - &TheAnonymousCrusher TheAnonymousCrusher
+  - &ninetailedtori ninetailedtori
 
 userstyles:
   advent-of-code:
@@ -496,6 +497,12 @@ userstyles:
     categories: [artificial_intelligence, productivity]
     color: yellow
     current-maintainers: [*ryanccn]
+  ipleak.net:
+    name: ipleak.net
+    link: https://ipleak.net
+    categories: [development]
+    color: blue
+    current-maintainers: [*ninetailedtori]
   jisho:
     name: Jisho
     link: https://jisho.org

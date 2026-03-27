@@ -1,10 +1,10 @@
 /* ==UserStyle==
-@name ipleak.net
-@namespace github.com/catppuccin/userstyles/styles/ipleak
-@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/ipleak
+@name ipleak.net Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/ipleak.net
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/ipleak.net
 @version 2025.09.06
-@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/ipleak/catppuccin.user.less
-@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aipleak
+@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/ipleak.net/catppuccin.user.less
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aipleak.net
 @description Soothing pastel theme for ipleak.net
 @author Catppuccin
 @license MIT
@@ -134,7 +134,7 @@
       th {
         color: @blue;
         background-color: fade(@blue, 30%);
-        text-shadow: 0px 0px 2px @blue;
+        text-shadow: 0 0 2px @blue;
         border-color: @blue;
 
         a {
@@ -158,74 +158,24 @@
       border-color: @overlay0;
     }
 
-    .ipv4_box .flag,
-    .ipv6_box .flag {
-      height: 2.3em;
-      float: left;
-    }
-
-    .ipv6_box .ip {
-      font-size: 1em;
-    }
-
     .ip_stats {
       color: @subtext0;
-      font-size: 0.8em;
     }
 
     .ip_reserved {
-      background-color: #bce9ff;
-      /*opacity:0.8;*/
-    }
-
-    .title {
-      margin-left: 1em;
-      margin-right: 1em;
-      font-size: 1.1em;
+      background-color: @teal;
     }
 
     .description {
       color: @subtext0;
-      font-size: 0.9em;
-    }
-
-    .wait {
-      width: 32px;
-      height: 32px;
-      background-image: url("../images/misc/wait.gif");
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-    }
-
-    #dnsdetection_results {
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
     }
 
     .wait2 {
-      background-color: #84b5ef;
-      height: 1.8em;
-      transition: opacity 1s;
-    }
-
-    #logo {
-      float: left;
-    }
-
-    #logo img {
-      /*
-          width:20em;
-          margin:0.5em;
-      */
-      position: absolute;
-      top: 0.5em;
-      left: 0.5em;
-      height: 3em;
+      background-color: @accent;
     }
 
     #adv {
-      box-shadow: 0px 0px 10px @shadow;
+      box-shadow: 0 0 10px @shadow;
     }
 
     .tab {
@@ -234,7 +184,6 @@
     }
 
     .tab:hover {
-      height: 30px;
       background-color: fade(@overlay1, 30%);
     }
 
@@ -270,7 +219,7 @@
     .activate_button {
       color: @text;
       background-color: @surface0;
-      box-shadow: 0em 0em 0.2em @shadow;
+      box-shadow: 0 0 0.2em @shadow;
 
       &:hover {
         background-color: @surface1;
@@ -286,7 +235,7 @@
       color: @green;
       background-color: fade(@green, 30%);
       border-color: @green;
-      text-shadow: 0px 0px 5px @green;
+      text-shadow: 0 0 5px @green;
 
       &:hover {
         color: @teal;

@@ -398,8 +398,7 @@
 
     /* fixes a contrast issue when the suggested follows button is enabled (very ugly selector) */
     button[data-testid="suggestedFollowsBtn"][style*="background-color: rgb(255, 255, 255)"]
-      > svg
-      > path {
+      > svg > path {
       fill: @base !important;
     }
 
