@@ -1,0 +1,317 @@
+/* ==UserStyle==
+@name ipleak.net
+@namespace github.com/catppuccin/userstyles/styles/ipleak
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/ipleak
+@version 2025.09.06
+@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/ipleak/catppuccin.user.less
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aipleak
+@description Soothing pastel theme for ipleak.net
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+@var checkbox highlight-redirect "Highlight redirect links" 0
+==/UserStyle== */
+
+@import "https://userstyles.catppuccin.com/lib/lib.less";
+
+@-moz-document domain("ipleak.net") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    @shadow: fade(@surface0, 10%);
+
+    color: @text;
+
+    body {
+      background-color: @base;
+      background-image: unset;
+    }
+
+    a {
+      color: @blue;
+
+      &:hover {
+        color: @sky;
+      }
+
+      &:active, &:focus {
+        color: @sapphire;
+      }
+
+      &:visited {
+        color: @lavender;
+      }
+    }
+
+    input {
+      color: @text;
+      background-color: @surface0;
+
+      &:hover {
+        background-color: @surface1;
+      }
+    }
+
+    h1 {
+      color: @subtext1;
+      border-color: @overlay1;
+    }
+
+    .js_reccomended {
+      border-color: @red;
+      color: @red;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    .notes {
+      color: @subtext0;
+    }
+
+    .blockinline {
+      border-color: @surface0;
+    }
+
+    .box {
+      background-color: @mantle;
+      box-shadow: 0 6px 26px 0 @shadow;
+      border-color: @overlay0;
+    }
+
+    table.properties tr {
+      &:nth-child(2n) td {
+        background-color: @surface0;
+      }
+
+      &:hover td {
+        background-color: @surface1;
+      }
+
+      > td:first-child {
+        background-color: @mantle;
+      }
+    }
+
+    table:is(.data, .properties) {
+      background-color: @base;
+      border-color: @overlay0;
+    }
+
+    table.data tr {
+      &:nth-child(2n) td {
+        background-color: @surface0;
+      }
+
+      &:hover {
+        background-color: @surface1;
+      }
+
+      > td:first-child {
+        background-color: @mantle;
+      }
+    }
+
+    .data {
+      td {
+        border-color: @overlay1;
+      }
+      th {
+        color: @blue;
+        background-color: fade(@blue, 30%);
+        text-shadow: 0px 0px 2px @blue;
+        border-color: @blue;
+
+        a {
+          color: @accent;
+        }
+      }
+    }
+
+    div#tooltip {
+      color: @text;
+      background-color: @surface2;
+      background-image: unset;
+      box-shadow: 0.2em 0.2em 1em @shadow;
+    }
+
+    .ip_box,
+    .ipv4_box,
+    .ipv6_box {
+      background-color: @base;
+      box-shadow: 0 6px 26px 0 @shadow;
+      border-color: @overlay0;
+    }
+
+    .ipv4_box .flag,
+    .ipv6_box .flag {
+      height: 2.3em;
+      float: left;
+    }
+
+    .ipv6_box .ip {
+      font-size: 1em;
+    }
+
+    .ip_stats {
+      color: @subtext0;
+      font-size: 0.8em;
+    }
+
+    .ip_reserved {
+      background-color: #bce9ff;
+      /*opacity:0.8;*/
+    }
+
+    .title {
+      margin-left: 1em;
+      margin-right: 1em;
+      font-size: 1.1em;
+    }
+
+    .description {
+      color: @subtext0;
+      font-size: 0.9em;
+    }
+
+    .wait {
+      width: 32px;
+      height: 32px;
+      background-image: url("../images/misc/wait.gif");
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+
+    #dnsdetection_results {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .wait2 {
+      background-color: #84b5ef;
+      height: 1.8em;
+      transition: opacity 1s;
+    }
+
+    #logo {
+      float: left;
+    }
+
+    #logo img {
+      /*
+          width:20em;
+          margin:0.5em;
+      */
+      position: absolute;
+      top: 0.5em;
+      left: 0.5em;
+      height: 3em;
+    }
+
+    #adv {
+      box-shadow: 0px 0px 10px @shadow;
+    }
+
+    .tab {
+      background-color: @red;
+      color: @text;
+    }
+
+    .tab:hover {
+      height: 30px;
+      background-color: fade(@overlay1, 30%);
+    }
+
+    .tabSelected {
+      background-color: fade(@overlay2, 30%);
+    }
+
+    .query_staff {
+      background-color: @green;
+    }
+
+    #header, #footer {
+      color: @subtext0;
+      background-color: @mantle;
+    }
+
+    #header {
+      box-shadow: inset 0 -10px 10px -10px @shadow;
+    }
+
+    #footer {
+      box-shadow: inset 0 10px 10px -10px @shadow;
+    }
+
+    .docs_center {
+      color: @subtext0;
+    }
+
+    .docs_verbose {
+      color: @subtext0;
+    }
+
+    .activate_button {
+      color: @text;
+      background-color: @surface0;
+      box-shadow: 0em 0em 0.2em @shadow;
+
+      &:hover {
+        background-color: @surface1;
+      }
+
+      &:active, &:focus {
+        background-color: @surface2;
+      }
+    }
+
+    .ip,
+    .digital {
+      color: @green;
+      background-color: fade(@green, 30%);
+      border-color: @green;
+      text-shadow: 0px 0px 5px @green;
+
+      &:hover {
+        color: @teal;
+      }
+    }
+
+    .location {
+      color: @text;
+    }
+
+    .isp {
+      color: @subtext1;
+    }
+
+    .separator {
+      border-color: @overlay1 !important;
+    }
+
+    .confidence {
+      border-color: @green;
+      color: @green;
+    }
+
+    .map_view_large {
+      color: @blue;
+    }
+  }
+}
