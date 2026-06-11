@@ -598,8 +598,12 @@
       }
 
       &:visited {
-        color: @base;
-        background-color: darken(@accent, 10%);
+        // original makes text invisible
+        &:hover {
+          color: @base;
+          background-color: darken(@accent, 10%);
+        }
+        color: darken(@subtext0, 10%);
       }
     }
 
@@ -668,6 +672,56 @@
     a:focus .resp-sharing-button--tumblr {
       background-color: @surface1;
       border-color: @surface1;
+    }
+
+    // home page works marked for later
+    .reading h4.viewed {
+      background-color: @mantle;
+    }
+
+    // home page unread comments
+    .unread {
+      background-color: @base;
+    }
+
+    // comments cant be empty warning
+    .LV_invalid {
+      &::before {
+        border-color: darken(@red, 40%) transparent;
+      }
+      background-color: @red;
+      border-color: darken(@red, 40%);
+      color: darken(@red, 40%);
+    }
+
+    // collections
+    #header h2.collections {
+      background: @lavender;
+      color: lighten(@base, 5%);
+    }
+
+
+    
+    .listbox .blurb {
+      // work titles on dashboard, they dont change based on hover
+      h4 a {
+        &:link {
+          color: @accent;
+        }
+        &:visited {
+          color: @text;
+        }
+      }
+      // fandom background on hover, so it doesn't use default ao3 red
+      h5.fandoms.heading a.tag{
+        &:visited {
+          color: @text;
+        }
+        &:hover, &:hover:visited {
+          color: @base;
+          background-color: @accent;
+        }
+      }
     }
   }
 }
