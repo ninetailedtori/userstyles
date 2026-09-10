@@ -64,18 +64,6 @@
 
     #__mediawiki.base();
 
-    .sidebar {
-      background-color: inherit !important;
-
-      .sidebar-title {
-        background-color: @mantle !important;
-      }
-
-      .sidebar-list-title {
-        background-color: @surface0 !important;
-      }
-    }
-
     /* Wiktionary */
     --wikt-palette-indigo: @lavender;
     --wikt-palette-lightindigo: fade(@lavender, 40%);
@@ -141,17 +129,32 @@
           border-top-color: @surface1;
         }
       }
-      .nmbox, .ombox {
+      .nmbox,
+      .ombox {
         background-color: @surface0;
         border-color: @surface2;
 
-        .nmbox-header, .ombox-header {
+        .nmbox-header,
+        .ombox-header {
           background-color: @base;
           border-color: @surface1;
         }
       }
+      .sidebar {
+        background-color: inherit !important;
+
+        .sidebar-title {
+          background-color: @mantle !important;
+        }
+
+        .sidebar-list-title,
+        .sidebar-heading {
+          background-color: @surface0 !important;
+        }
+      }
       .sidebar-collapse {
-        .sidebar-below, .sidebar-top {
+        .sidebar-above,
+        .sidebar-below {
           border-top-color: @overlay0;
           border-bottom-color: @overlay0;
         }
@@ -278,12 +281,15 @@
         );
         content: url("data:image/svg+xml,@{svg}");
       }
-      &[resource^="https://en.wikipedia.org/wiki/File:Walnut."] {
-        /* if you value your life, don't try to theme this unless you have 5 hours free to a single icon. */
+      &[resource="https://en.wikipedia.org/wiki/File:Wikiquote-logo.svg"] {
+        @svg: escape(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="355" viewBox="-64.5 -177.5 300 355"><defs><clipPath id="a"><path d="m-25 0 300 300L575 0 275-300z"/></clipPath></defs><circle r="59.1" fill="@{blue}"/><g clip-path="url(#a)" fill="none"><circle r="101" stroke="@{blue}" stroke-width="29"/><circle r="156.5" stroke="@{sapphire}" stroke-width="30.4"/><circle r="215.7" stroke="@{sky}" stroke-width="31.4"/></g></svg>'
+        );
+        content: url("data:image/svg+xml,@{svg}");
       }
       &[resource^="https://en.wikipedia.org/wiki/File:Semi-protection-shackle."] {
         @svg: escape(
-          '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="1.25" width="10" height="15" rx="5" ry="5" fill="none" stroke="@{surface1}" stroke-width="2.5"/><rect x="2.5" y="7.5" width="15" height="12.5" rx="1.25" ry="1.25" style="fill:@{surface0}"/><circle cx="10" cy="11.75" r="2" fill="@{text}"/><path d="M6.25 17.5v-1c0-2 7.5-2 7.5 0v1" fill="@{text}"/></svg>'
+          '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" stroke-linejoin="round" stroke-linecap="round"><rect x="5" y="1.25" width="10" height="15" rx="5" ry="5" fill="none" stroke="@{surface1}" stroke-width="2.5"/><rect x="2.5" y="7.5" width="15" height="12.5" rx="1.25" ry="1.25" fill="@{surface0}"/><circle cx="10" cy="11.75" r="2" fill="@{text}"/><path d="M6.25 17.5v-1c0-2 7.5-2 7.5 0v1" fill="@{text}"/></svg>'
         );
         content: url("data:image/svg+xml,@{svg}");
       }
